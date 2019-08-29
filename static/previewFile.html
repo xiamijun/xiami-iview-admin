@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">	
+    <head> 
+        <title>FlexPaper</title>         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; }   
+			#flashContent { display:none; }
+        </style> 
+		
+		<script type="text/javascript" src="js/flexpaper_flash.js"></script>
+    </head> 
+    <body> 
+    	<div style="position:absolute;left:10px;top:10px;">
+	        <a id="viewerPlaceHolder" style="width:650px;height:590px;display:block"></a>
+	        
+					<script type="text/javascript">
+
+					// function getUtlParam (url) {
+					// 	url = url ? url : window.location.href.substring(0, window.location.href.length - 2);
+					// 	let str = url.substring(url.indexOf('?') + 1);
+					// 	let arrs = str.split('&');
+					// 	let result = {};
+					// 	arrs.forEach(item => {
+					// 		let keyArr = item.split('=');
+					// 		let name = keyArr[0];
+					// 		let value = keyArr[1];
+					// 		result[name] = value;
+					// 	});
+					// return result;
+					// };
+					// let previewUrl=window.sessionStorage.getItem('previewUrl')
+					// let previewUrl=getUtlParam().previewUrl
+
+					// 接受父页面发来的信息
+					let previewUrl='';
+					window.addEventListener("message", function(event){
+						previewUrl=event.data.previewUrl
+						var fp = new FlexPaperViewer(
+						'FlexPaperViewer',
+						'viewerPlaceHolder', { config : {
+						SwfFile : escape(previewUrl),
+						Scale : 0.6,
+						ZoomTransition : 'easeOut',
+						ZoomTime : 0.5,
+						ZoomInterval : 0.2,
+						FitPageOnLoad : true,
+						FitWidthOnLoad : false,
+						PrintEnabled : true,
+						FullScreenAsMaxWindow : false,
+						ProgressiveLoading : false,
+						MinZoomSize : 0.2,
+						MaxZoomSize : 5,
+						SearchMatchAll : false,
+						InitViewMode : 'Portrait',
+
+						ViewModeToolsVisible : true,
+						ZoomToolsVisible : true,
+						NavToolsVisible : true,
+						CursorToolsVisible : true,
+						SearchToolsVisible : true,
+
+						localeChain: 'en_US'
+						}});
+					});
+					
+				
+	        </script>
+        </div>
+     
+   </body> 
+</html> 
