@@ -4,12 +4,11 @@
   <div>
 
     <Sider class="sider" hide-trigger collapsible ref="side1" :collapsed-width="70" v-model="isCollapsed">
-      <SideMenu :isCollapsed="isCollapsed"></SideMenu>
+      <SideMenu></SideMenu>
     </Sider>
 
     <Layout class="layout">
         <Header class="header">
-          <Icon @click.native="collapsedSider" type="md-menu" size="24"></Icon>
         </Header>
         <Content>
             <router-view></router-view>
@@ -32,15 +31,9 @@ export default {
     MyHeader
   },
   data() {
-    return {
-      isCollapsed: false
-    };
+    return {};
   },
-  methods: {
-    collapsedSider() {
-      this.$refs.side1.toggleCollapse();
-    }
-  }
+  methods: {}
 };
 </script>
 
