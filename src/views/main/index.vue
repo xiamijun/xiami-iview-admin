@@ -3,7 +3,7 @@
 <template>
   <div>
 
-    <Sider class="sider" hide-trigger collapsible ref="side1" :collapsed-width="70" v-model="isCollapsed">
+    <Sider class="sider" hide-trigger collapsible ref="side1" :collapsed-width="70">
       <SideMenu></SideMenu>
     </Sider>
 
