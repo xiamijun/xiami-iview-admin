@@ -23,6 +23,16 @@ export default {
         noControl: true,
         fullPath: '/util/util-test'
       }
+    },
+    {
+      path: '/util/preview-img',
+      name: 'preview-img',
+      component: resovle => require(['@/views/util/preview-img'], resovle),
+      meta: {
+        title: '预览图片',
+        noControl: true,
+        fullPath: '/util/preview-img'
+      }
     }
   ]
 };
