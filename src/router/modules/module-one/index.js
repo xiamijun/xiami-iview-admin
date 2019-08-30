@@ -2,6 +2,10 @@
 import Main from '@/views/main';
 import DefaultPage from '@/views/default';
 import Login from '@/views/login';
+import resource from './resource';
+
+// 放入侧边菜单栏的路由
+export const menuRoute = [resource];
 
 /**
  *
@@ -48,5 +52,6 @@ export const routerMap = [
         component: DefaultPage
       }
     ]
-  }
+  },
+  ...menuRoute
 ];

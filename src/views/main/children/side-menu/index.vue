@@ -2,40 +2,20 @@
 
 <template>
   <div>
-    <Menu theme="dark" :open-names="['1']" accordion width="auto" class="menu-item" :class="{'collapsed-menu': isCollapsed}">
-      <Submenu name="1">
+    <Menu theme="dark" :open-names="[currentOpen]" accordion width="auto" class="menu-item" :class="{'collapsed-menu': isCollapsed}" :active-name="currentActive">
+      <Submenu :name="item.meta.fullPath" v-for="item in menuRoute" :key="item.name">
           <template slot="title">
-              <Icon type="ios-paper" />
-              <span>1</span>
+              <Icon :type="item.meta.icon" />
+              <span>{{item.meta.title}}</span>
           </template>
-          <MenuItem name="1-1"><span>1-1</span></MenuItem>
-          <MenuItem name="1-2"><span>1-2</span></MenuItem>
-          <MenuItem name="1-3"><span>1-3</span></MenuItem>
-      </Submenu>
-      <Submenu name="2">
-          <template slot="title">
-              <Icon type="ios-people" />
-              2
-          </template>
-          <MenuItem name="2-1"><span>2-1</span></MenuItem>
-          <MenuItem name="2-2"><span>2-2</span></MenuItem>
-      </Submenu>
-      <Submenu name="3">
-          <template slot="title">
-              <Icon type="ios-stats" />
-              3
-          </template>
-          <MenuItem name="3-1"><span>1-1</span></MenuItem>
-          <MenuItem name="3-2"><span>3-2</span></MenuItem>
-          <MenuItem name="3-3"><span>3-3</span></MenuItem>
-          <MenuItem name="3-4"><span>3-4</span></MenuItem>
-          <MenuItem name="3-5"><span>3-5</span></MenuItem>
+          <MenuItem :name="item2.name" v-for="item2 in item.children" :key="item2.name" :to="{name:'resourceList'}"><span>{{item2.meta.title}}</span></MenuItem>
       </Submenu>
   </Menu>
   </div>
 </template>
 
 <script>
+import { menuRoute } from '../../../../router/modules/module-one';
 export default {
   name: 'SideMenu',
   props: {
@@ -44,7 +24,17 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      menuRoute: menuRoute
+    };
+  },
+  computed: {
+    currentOpen() {
+      return this.$route.path.split('/')[1];
+    },
+    currentActive() {
+      return this.$route.name;
+    }
   }
 };
 </script>

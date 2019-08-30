@@ -1,8 +1,6 @@
 /** @format */
 
 'use strict';
-import ImageminPlugin from 'imagemin-webpack-plugin'
-import imageminMozjpeg from 'imagemin-mozjpeg'
 const path = require('path');
 const utils = require('./utils');
 const webpack = require('webpack');
@@ -37,16 +35,7 @@ let devWebpackConfig = merge(baseWebpackConfig, {
       to: config.dev.assetsSubDirectory,
       ignore: ['.*']
     }]),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
-    // 图片压缩、渐进式
-    new ImageminPlugin({
-      plugins: [
-        imageminMozjpeg({
-          quality: 100,
-          progressive: true
-        })
-      ]
-    })
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' })
   ]
 });
 

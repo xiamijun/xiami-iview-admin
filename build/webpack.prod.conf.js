@@ -1,8 +1,6 @@
 /** @format */
 
 'use strict';
-import ImageminPlugin from 'imagemin-webpack-plugin'
-import imageminMozjpeg from 'imagemin-mozjpeg'
 const path = require('path');
 const utils = require('./utils');
 const webpack = require('webpack');
@@ -12,6 +10,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const env =
   process.env.NODE_ENV === 'testing'
     ? require('../config/test.env')
@@ -70,16 +69,7 @@ let webpackConfig = merge(baseWebpackConfig, {
       from: path.resolve(__dirname, '../static'),
       to: config.build.assetsSubDirectory,
       ignore: ['.*']
-    }]),
-    // 图片压缩、渐进式
-    new ImageminPlugin({
-      plugins: [
-        imageminMozjpeg({
-          quality: 100,
-          progressive: true
-        })
-      ]
-    })
+    }])
   ]
 });
 
