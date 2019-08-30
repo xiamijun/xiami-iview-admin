@@ -268,6 +268,7 @@ export const escapeHTML = str =>
       }[tag] || tag)
   );
 
+// 创建canvas下载图片，解决跨域
 export const downloadImg = (url, name) => {
   // 实例化画布
   let canvas = document.createElement('canvas');
@@ -294,4 +295,31 @@ export const downloadImg = (url, name) => {
     document.body.appendChild(a);
     a.click();
   };
+};
+
+/**
+ * @method launchFullScreen 开启全屏
+ * @param {Object} elem = document.documentElement 作用的元素
+ */
+export const launchFullScreen = (elem = document.documentElement) => {
+  if (elem.requestFullScreen) {
+    elem.requestFullScreen();
+  } else if (elem.mozRequestFullScreen) {
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullScreen) {
+    elem.webkitRequestFullScreen();
+  }
+};
+
+/**
+ * @method exitFullScreen 关闭全屏
+ */
+export const exitFullScreen = () => {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitCancelFullScreen) {
+    document.webkitCancelFullScreen();
+  }
 };
