@@ -33,6 +33,16 @@ export default {
         noControl: true,
         fullPath: '/util/preview-img'
       }
+    },
+    {
+      path: '/util/bg-attachment',
+      name: 'bg-attachment',
+      component: resovle => require(['@/views/util/bg-attachment'], resovle),
+      meta: {
+        title: '背景视差',
+        noControl: true,
+        fullPath: '/util/bg-attachment'
+      }
     }
   ]
 };
