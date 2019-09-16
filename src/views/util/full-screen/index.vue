@@ -19,7 +19,7 @@
 <script>
 import { downloadImg, launchFullScreen, exitFullScreen } from '@/utils';
 export default {
-  name: 'util-test',
+  name: 'fullScreen',
   data() {
     return {};
   },

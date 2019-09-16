@@ -15,13 +15,13 @@ export default {
   },
   children: [
     {
-      path: '/util/util-test',
-      name: 'util-test',
-      component: resovle => require(['@/views/util/util-test'], resovle),
+      path: '/util/full-screen',
+      name: 'full-screen',
+      component: resovle => require(['@/views/util/full-screen'], resovle),
       meta: {
-        title: '测试',
+        title: '全屏',
         noControl: true,
-        fullPath: '/util/util-test'
+        fullPath: '/util/full-screen'
       }
     },
     {
@@ -42,6 +42,16 @@ export default {
         title: '背景视差',
         noControl: true,
         fullPath: '/util/bg-attachment'
+      }
+    },
+    {
+      path: '/util/drag-list',
+      name: 'drag-list',
+      component: resovle => require(['@/views/util/drag-list'], resovle),
+      meta: {
+        title: '拖拽',
+        noControl: true,
+        fullPath: '/util/drag-list'
       }
     }
   ]
