@@ -3,10 +3,11 @@ import Main from '@/views/main';
 import DefaultPage from '@/views/default';
 import Login from '@/views/login';
 import resource from './resource';
-import utilTest from './util';
+import functionsTest from './functions';
+import bookScale from '@/views/functions/scale/bookScale';
 
 // 放入侧边菜单栏的路由
-export const menuRoute = [resource, utilTest];
+export const menuRoute = [resource, functionsTest];
 
 /**
  *
@@ -54,5 +55,15 @@ export const routerMap = [
       }
     ]
   },
-  ...menuRoute
+  ...menuRoute,
+  {
+    path: '/bookScale',
+    name: 'bookScale',
+    meta: {
+      title: '缩放',
+      noControl: true,
+      hideInMenu: true
+    },
+    component: bookScale
+  }
 ];
